@@ -1,25 +1,32 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../screens/chat_screen.dart'; 
-import '../screens/splash_screen.dart';
-import '../screens/logs_screen.dart';
+import 'package:omninexus_app/main.dart';
+
+// Using absolute imports based on your pubspec.yaml name
+import 'package:omninexus_app/screens/splash_screen.dart';
+import 'package:omninexus_app/screens/logs_screen.dart';
 
 class AppRouter {
   static final router = GoRouter(
-    initialLocation: '/', // Start at the Splash Screen
+    initialLocation: '/',
+    // Added an errorBuilder just in case a route fails during your recording
+    errorBuilder: (context, state) =>
+        Scaffold(body: Center(child: Text('Page not found: ${state.error}'))),
     routes: [
       GoRoute(
         path: '/',
         name: 'splash',
-        builder: (context, state) => const SplashScreen(),
+        builder: (context, state) => SplashScreen(),
       ),
       GoRoute(
         path: '/nexus',
         name: 'nexus',
-        builder: (context, state) => const ChatScreen(),
+        builder: (context, state) => ChatScreen(),
       ),
       GoRoute(
         path: '/logs',
-        builder: (context, state) => const LogsScreen(),
+        name: 'logs',
+        builder: (context, state) => LogsScreen(),
       ),
     ],
   );
