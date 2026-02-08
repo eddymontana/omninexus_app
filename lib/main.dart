@@ -46,7 +46,8 @@ class _ChatScreenState extends State<ChatScreen> {
   bool _isLoading = false;
 
   final AIOrchestrator _orchestrator = AIOrchestrator(
-    apiKey: 'AIzaSyD5smAptl2HT9G4LvVHjgSJxBQoCqRVdjs',
+    // The key is passed via environment variables for security
+    apiKey: const String.fromEnvironment('GEMINI_API_KEY'), 
     webhookUrl: 'https://hook.eu2.make.com/mbp68qiwznuwewmpmpiva7nhi4b1ma4v',
   );
 

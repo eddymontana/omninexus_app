@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import '../screens/chat_screen.dart'; 
 import '../screens/splash_screen.dart';
+import '../screens/logs_screen.dart';
 
 class AppRouter {
   static final router = GoRouter(
